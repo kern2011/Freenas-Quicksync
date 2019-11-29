@@ -92,5 +92,26 @@ If everything worked; you should be able to find “dri” and “drm” in the 
 - From your Plex dashboard you should see transcode with `(hw)` at the end. If you do then congratulations, it worked!
 
 ## Notes
-
 - This was working for me but I think I broke somthing as it no longer works.
+
+- 11/29/19- Fixed! It turns out my version of Plex was broken (Version 1.17.0.1709) If this wont work for you there is a work around:
+
+In your Plex jail backup:
+
+`/usr/local/share/plexmediaserver-plexpass/lib/libva-drm.so.2`
+
+`/usr/local/share/plexmediaserver-plexpass/lib/libdrm.so.2`
+
+`/usr/local/share/plexmediaserver-plexpass/lib/libva.so.2`
+
+Then replace the files with good versions by running (From your Plex jail):
+
+`cp-a /usr/local/lib/libva-drm.so.2.500.0 /usr/local/share/plexmediaserver-plexpass/lib/libva-drm.so.2`
+
+`cp -a /usr/local/lib/libdrm.so.2.4.0 /usr/local/share/plexmediaserver-plexpass/lib/libdrm.so.2`
+
+`cp -a /usr/local/lib/libva.so.2.500.0 /usr/local/share/plexmediaserver-plexpass/lib/libva.so.2`
+
+Also copy your driver to Plex
+
+`cp -a /usr/local/lib/dri/i965_drv_video.so /usr/local/share/plexmediaserver-plexpass/lib/dri/`
