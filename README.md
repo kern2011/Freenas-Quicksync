@@ -92,7 +92,7 @@ If everything worked; you should be able to find “dri” and “drm” in the 
 - From your Plex dashboard you should see transcode with `(hw)` at the end. If you do then congratulations, it worked!
 
 ## Notes
-- This was working for me but I think I broke somthing as it no longer works.
+- 11/29/19- This was working for me but I think I broke somthing as it no longer works.
 
 - 11/29/19- Fixed! It turns out my version of Plex was broken (Version 1.17.0.1709) If this wont work for you there is a work around:
 
@@ -115,3 +115,5 @@ Then replace the files with good versions by running (From your Plex jail):
 Also copy your driver to Plex
 
 `cp -a /usr/local/lib/dri/i965_drv_video.so /usr/local/share/plexmediaserver-plexpass/lib/dri/`
+
+- 11/29/19- There is also 1 more problem I'm having, after rebooting Freenas my Plex Jail can't see “dri” and “drm” but after I resart the jail everything works fine.
