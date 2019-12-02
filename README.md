@@ -79,9 +79,9 @@ Change `devfs_ruleset` to `5`
 
 ## Testing
 
-###### From the Freenas console:
+###### From the Jail console:
  
-`iocage get devfs_ruleset <<your jail name>>`
+`ls /dev`
 
 If everything worked; you should be able to find “dri” and “drm” in the output.
 
@@ -117,3 +117,5 @@ Also copy your driver to Plex
 `cp -a /usr/local/lib/dri/i965_drv_video.so /usr/local/share/plexmediaserver-plexpass/lib/dri/`
 
 - 11/29/19- There is also 1 more problem I'm having, after rebooting Freenas my Plex Jail can't see “dri” and “drm” but after I resart the jail everything works fine.
+
+- 12/1/19- Fixed a mistake in the "Testing" section.
