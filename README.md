@@ -67,8 +67,6 @@ For newer CPUs - Intel HD 5000 (Gen8) or newer
 - Expand the “Jail Properties” header
 Change `devfs_ruleset` to `5`
 
-- Tick `allow_mount`
-
 - Tick `allow_mount_devfs`
 
 - Save your settings
@@ -104,7 +102,7 @@ In your Plex jail backup:
 
 Then replace the files with good versions by running (From your Plex jail):
 
-`cp-a /usr/local/lib/libva-drm.so.2.500.0 /usr/local/share/plexmediaserver-plexpass/lib/libva-drm.so.2`
+`cp -a /usr/local/lib/libva-drm.so.2.500.0 /usr/local/share/plexmediaserver-plexpass/lib/libva-drm.so.2`
 
 `cp -a /usr/local/lib/libdrm.so.2.4.0 /usr/local/share/plexmediaserver-plexpass/lib/libdrm.so.2`
 
