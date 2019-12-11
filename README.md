@@ -67,8 +67,6 @@ For newer CPUs - Intel HD 5000 (Gen8) or newer
 - Expand the “Jail Properties” header
 Change `devfs_ruleset` to `5`
 
-- Change `enforce_statfs` to `1`
-
 - Tick `allow_mount`
 
 - Tick `allow_mount_devfs`
