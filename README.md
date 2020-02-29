@@ -1,6 +1,10 @@
 # Freenas-Quicksync
 ###### How to guide for getting Intel Quicksync working on Freenas
 While researching this, everything I found led me to believe that Intel Quicksync would not work until we got FreeBSD 12. After researching forums online, I have gotten it to work on 11.3. I am not much more than a noob that is only tinkering but this works for me. I am using a i7 4790K and using Quicksync for 1 1080p to 720p or 1080p to 1080p stream leaves my cpu usage at 1%. I have not tested much more yet.
+## Compatibility
+- The current (11.3U1) Freenas Drivers support Intel CPU Generation 2-7
+- The current (11.3U1) Freenas Drivers DO NOT support Intel CPU Generation 8 and 9
+- Support for Generation 8 and 9 can not be added without a kernel upgrade to 12.0. Don't bother trying to compile it from source.
 ## Prep
 -  First you must upgrade to Freenas 11.3 to be able to run a FreeBSD 11.3 jail. This can be done from the UI System>Update and changing the train to 11.3 (the Beta is working just fine for me).
 -  Unfortunately I don't know if it's possible to upgrade your existing iocage, I couldn't and broke a jail trying. So I destroyed my Plex jail and remade it with 11.3. This was pretty painless for me because all of my plex data is in a location outside of the jail, but if yours isn't make sure to back it up. Verifi everything is running before moving on.
@@ -48,11 +52,13 @@ When: Post Init
 ###### From the Plex jail console:
 - Install the Intel graphics driver:
 
-For older CPUs - Intel GMA 4500 or newer
+**For older CPUs - Intel GMA 4500 or newer**
 
 `pkg install multimedia/libva-intel-driver`
 
-For newer CPUs - Intel HD 5000 (Gen8) or newer
+**For newer CPUs - Intel HD 5000 (Gen8) or newer**
+
+_Please note: Freenas currently (11.3U1) does not include Gen8 and Gen9 driver support_
 
 `pkg install multimedia/libva-intel-media-driver`
 
@@ -115,3 +121,5 @@ Also copy your driver to Plex
 - 11/29/19- There is also 1 more problem I'm having, after rebooting Freenas my Plex Jail can't see “dri” and “drm” but after I resart the jail everything works fine.
 
 - 12/1/19- Fixed a mistake in the "Testing" section.
+
+- 26/2/19- Added compatibility (or lack thereof) notice about Gen 8 and Gen 9 support
