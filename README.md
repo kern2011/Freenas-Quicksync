@@ -5,6 +5,14 @@ While researching this, everything I found led me to believe that Intel Quicksyn
 - The current (11.3-U1) Freenas Drivers support Intel CPU Generation 2-7
 - The current (11.3-U1) Freenas Drivers DO NOT support Intel CPU Generation 8 and 9
 - Support for Generation 8 and 9 can not be added without a kernel upgrade to 12.0. Don't bother trying to compile it from source.
+## Hardware requirements Intel Xeon
+- Your chipset and motherboard/BIOS need to support the iGPU in your xxx5 Xeon
+- C226, C236, and C246 chipsets are able to support iGPU; C222, C232 and C242 will not.
+- Caveat that C246 would require TrueNAS 12.x, this has not been tested yet.
+- C226: SuperMicro X10SLH-F and Intel S1200V3RPM confirmed working
+- C236: SuperMicro X11SSH-F and AsRock Rack E3C236D2I confirmed working; X11SSM-F expected to work
+- C246: SuperMicro X11SCH-F expected to work; X11SCM-F will not work
+- These considerations do not apply to Intel Core i3/i5/i7 processors
 ## Prep
 -  First you must upgrade to Freenas 11.3 to be able to run a FreeBSD 11.3 jail. This can be done from the UI System>Update and changing the train to 11.3.
 -  Unfortunately I don't know if it's possible to upgrade your existing iocage, I couldn't and broke a jail trying. So I destroyed my Plex jail and remade it with 11.3. This was pretty painless for me because all of my plex data is in a location outside of the jail, but if yours isn't make sure to back it up. Verify everything is running before moving on.
